@@ -5,7 +5,7 @@ resource "aws_route53_vpc_association_authorization" "vpc" {
   zone_id = local.zone.id
 }
 
-resource "aws_route53_zone_association" "name" {
+resource "aws_route53_zone_association" "vpc" {
   provider = aws.authorized
   for_each = {
     for vpc, zone_association in aws_route53_vpc_association_authorization.vpc :
