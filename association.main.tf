@@ -14,4 +14,8 @@ resource "aws_route53_zone_association" "vpc" {
 
   vpc_id  = each.value.vpc_id
   zone_id = each.value.zone_id
+
+  depends_on = [
+    aws_route53_vpc_association_authorization.vpc,
+  ]
 }
